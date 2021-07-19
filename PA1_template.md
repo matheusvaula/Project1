@@ -1,8 +1,3 @@
----
-output:
-  html_document:
-    keep_md: true
----
 
 ## Loading and preprocessing the data
 Loading library
@@ -56,7 +51,7 @@ ggplot(Total_Steps, aes(x = steps)) +
 ## Warning: Removed 8 rows containing non-finite values (stat_bin).
 ```
 
-![plot of chunk unnamed-chunk-62](figure/unnamed-chunk-62-1.png)
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
 
 3. The mean and median of the total number of steps taken per day
 
@@ -79,7 +74,7 @@ IntervalDT <- activDt[, c(lapply(.SD, mean, na.rm = TRUE)), .SDcols = c("steps")
 ggplot(IntervalDT, aes(x = interval , y = steps)) + geom_line(color="lightblue", size=1) + labs(title = "Avg. Daily Steps", x = "Interval", y = "Avg. Steps per day")
 ```
 
-![plot of chunk unnamed-chunk-64](figure/unnamed-chunk-64-1.png)
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png)
 
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -150,7 +145,7 @@ Total_Steps[, .(Mean_Steps = mean(steps), Median_Steps = median(steps))]
 ggplot(Total_Steps, aes(x = steps)) + geom_histogram(fill = "lightblue", binwidth = 1000) + labs(title = "Daily Steps", x = "Steps", y = "Frequency")
 ```
 
-![plot of chunk unnamed-chunk-69](figure/unnamed-chunk-69-1.png)
+![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png)
 
 Type of Estimate | Mean_Steps | Median_Steps
 --- | --- | ---
@@ -219,4 +214,4 @@ IntervalDT <- activDt[, c(lapply(.SD, mean, na.rm = TRUE)), .SDcols = c("steps")
 ggplot(IntervalDT , aes(x = interval , y = steps, color=`weekday or weekend`)) + geom_line() + labs(title = "Avg. Daily Steps by Weektype", x = "Interval", y = "No. of Steps") + facet_wrap(~`weekday or weekend` , ncol = 1, nrow=2)
 ```
 
-![plot of chunk unnamed-chunk-71](figure/unnamed-chunk-71-1.png)
+![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13-1.png)
